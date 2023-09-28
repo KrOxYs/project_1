@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.btn-shadow {
+  box-shadow: -2px 15px 22px -8px rgba(255, 125, 26, 0.77);
+}
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+@layer components {
+  .header-link-item {
+    @apply cursor-pointer text-xs font-medium opacity-75 transition duration-300 hover:opacity-100;
+  }
+
+  .carousel-btn-switch-card {
+    @apply absolute z-40 flex h-9 w-9 cursor-pointer items-center justify-center
+      rounded-full border-2 border-[#302e30] bg-[#181818] text-2xl opacity-75 transition duration-300 hover:opacity-100 md:h-12 md:w-12;
+  }
+
+  .carousel-btn-switch-card-left {
+    @apply right-10 top-1/2 translate-x-[-200px] translate-y-[-50%] transform sm:translate-x-[-250px] md:translate-x-[-200px] lg:translate-x-[-250px] lg:right-28;
+  }
+
+  .carousel-btn-switch-card-right {
+    @apply top-1/2 left-1 translate-x-[200px] translate-y-[-50%] transform sm:translate-x-[250px] md:translate-x-[200px] lg:translate-x-[200px] lg:left-40;
+  }
+
+  .carousel-indicator {
+    @apply absolute left-1/2 -bottom-1 mb-3 flex h-5 w-24 -translate-x-1/2 transform items-center justify-center space-x-1 ;
+  }
+
+  .carousel-indicator-dots {
+    @apply h-2 w-2 rounded-full bg-blue-700 opacity-50  transition-all duration-500 hover:w-4 hover:opacity-100;
+  }
+
+  .carousel-container {
+    @apply relative h-6 w-3/6 sm:h-40 md:h-56;
+    perspective: 450px;
+    transform-style: preserve-3d;
+  }
+
+  .carousel-item {
+    @apply absolute w-full cursor-pointer overflow-hidden rounded-3xl drop-shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-700 ease-in-out;
+  }
+}
